@@ -4,6 +4,7 @@ import os
 import subprocess
 import re
 from time import sleep, time
+from stats import Stat
 
 
 def get_active_window_title():
