@@ -30,6 +30,8 @@ def get_active_window_title():
                 with open("/proc/{pid}/cmdline".format(pid=pid)) as f:
                     active_window_name = f.read()
         else:
+            import gi
+            gi.require_version('Gtk', '3.0')
             try:
                 from gi.repository import Gtk, Wnck
                 gi = "Installed"
@@ -58,4 +60,5 @@ def get_active_window_title():
         print("sys.platform={platform} is unknown. Please report."
               .format(platform=sys.platform))
         print(sys.version)
+        exit()
     return active_window_name
